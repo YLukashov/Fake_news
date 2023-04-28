@@ -1,5 +1,6 @@
 import joblib
 import pickle
+from textblob import TextBlob
 
 
 def pred(news):
@@ -14,6 +15,9 @@ def pred(news):
     X_new = vector.transform(X_new)
 
     prediction = loaded_model.predict(X_new)
+
+    if abs(TextBlob(news).polarity) > 0.6:
+        return False
 
     if prediction[0] == 0:
         return True
