@@ -19,7 +19,7 @@ def pred(news):
     if abs(TextBlob(news).polarity) > 0.6:
         return False
 
-    if prediction[0] == 0:
+    if prediction[0] == 1:
         return True
     else:
         return False

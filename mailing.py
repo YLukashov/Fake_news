@@ -68,3 +68,27 @@ def del_user(user_id):
             sqlite_connection.close()
             print("Соединение с SQLite закрыто")
 
+
+def get_users():
+    try:
+        sqlite_connection = sqlite3.connect('main_db/mail.db')
+        cursor = sqlite_connection.cursor()
+        print("Подключен к SQLite")
+
+        sqlite_select_query = """SELECT * from users"""
+
+        cursor.execute(sqlite_select_query)
+        all_authors = cursor.fetchall()
+
+        all_users = [i[1] for i in all_authors]
+        return all_users
+
+        cursor.close()
+
+    except sqlite3.Error as error:
+        print("Ошибка при работе с SQLite", error)
+    finally:
+        if sqlite_connection:
+            sqlite_connection.close()
+            print("Соединение с SQLite закрыто")
+
