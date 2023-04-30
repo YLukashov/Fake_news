@@ -4,11 +4,11 @@ from textblob import TextBlob
 
 
 def pred(news):
-    filename = 'LogisticRegression_model.sav'
+    filename = 'save_train/LogisticRegression_model.sav'
     # load the model from disk
     loaded_model = joblib.load(filename)
 
-    vector = pickle.load(open("vectorizer.pk", "rb"))
+    vector = pickle.load(open("save_train/vectorizer.pk", "rb"))
 
     X_new = [str(news)]
 
