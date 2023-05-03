@@ -38,7 +38,7 @@ async def send_start_menu(message: types.Message):
     keyboard = ReplyKeyboardMarkup(resize_keyboard=True).add(but1).add(but2).add(but3)
     # Отправка сообщение с клавиатурой
     await bot.send_message(message.chat.id, "* 👋 Добро пожаловать * \n"
-                                            "* 📢 При возникновении проблем испульзуйте /help *\n"
+                                            "* 📢 При возникновении проблем используйте /help *\n"
                                             "* ✨ Выберите одну из предложенных кнопок: *",
                            reply_markup=keyboard)
 
